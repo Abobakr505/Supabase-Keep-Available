@@ -1,0 +1,1 @@
+[![Supabase Keep Alive](https://github.com/Abobakr505/Supabase-Keep-Available/actions/workflows/supabase-keepalive.yml/badge.svg)](https://github.com/Abobakr505/Supabase-Keep-Available/actions/workflows/supabase-keepalive.yml)
