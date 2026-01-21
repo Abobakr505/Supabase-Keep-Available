@@ -2,7 +2,7 @@ name: Supabase Keep Alive
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   
+    - cron: "*/5 * * * *" 
   workflow_dispatch:
 
 jobs:
@@ -11,11 +11,6 @@ jobs:
     steps:
       - name: Ping Supabase
         run: |
-          curl -X POST "$SUPABASE_URL/rest/v1/rpc/keep_alive" \
-          -H "apikey: $SUPABASE_ANON_KEY" \
-          -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
-          -H "Content-Type: application/json" \
-          --data '{}'
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          curl "${{ secrets.SUPABASE_URL }}/rest/v1/projects?select=id&limit=1" \
+          -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
